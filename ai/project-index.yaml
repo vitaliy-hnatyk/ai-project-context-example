@@ -1,8 +1,21 @@
 schema: ai_project_index.v1
 
 project:
-  name: workflow-editor-example
-  description: Example structure for AI-assisted project development.
+  title: AI Project Context Kit
+  name: ai-project-context-kit
+  description: GitHub-ready starter structure for AI-assisted project development.
+  about: Clean YAML context files, skills, instructions, templates, and routing rules for smaller AI prompts.
+  tags:
+    - ai
+    - yaml
+    - prompt-engineering
+    - ai-workflow
+    - context-engineering
+    - software-architecture
+    - developer-tools
+    - workflow
+    - llm
+    - project-template
 
 # Files that are usually safe to load for most tasks.
 default_load:

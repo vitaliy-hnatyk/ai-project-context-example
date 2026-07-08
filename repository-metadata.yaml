@@ -1,0 +1,22 @@
+repository:
+  title: AI Project Context Kit
+  name: ai-project-context-kit
+  description: "Starter YAML structure for AI-assisted software projects: clean context files, skills, instructions, templates, and task routing."
+  about: >
+    A GitHub-ready example for organizing AI project context into clean YAML files.
+    Use it to reduce prompt size, separate project facts from instructions, and connect
+    contexts with domain-specific AI skills.
+  homepage: ""
+  visibility: public
+  license: MIT
+  topics:
+    - ai
+    - yaml
+    - prompt-engineering
+    - ai-workflow
+    - context-engineering
+    - software-architecture
+    - developer-tools
+    - workflow
+    - llm
+    - project-template

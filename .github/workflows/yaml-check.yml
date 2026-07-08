@@ -1,0 +1,33 @@
+name: YAML check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  yaml-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate YAML files
+        run: |
+          python - <<'PY'
+          import pathlib
+          import sys
+          import yaml
+
+          failed = False
+          for path in pathlib.Path('.').rglob('*.yaml'):
+              try:
+                  yaml.safe_load(path.read_text(encoding='utf-8'))
+                  print(f'OK {path}')
+              except Exception as exc:
+                  failed = True
+                  print(f'FAIL {path}: {exc}')
+          sys.exit(1 if failed else 0)
+          PY

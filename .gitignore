@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Dependencies / build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Temporary AI output
+.ai-cache/
+.ai-output/
+tmp/
+temp/
