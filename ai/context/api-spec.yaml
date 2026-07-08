@@ -1,0 +1,37 @@
+_meta:
+  type: clean_context
+  schema: project_context.v1
+  id: api_spec
+  domain: backend
+  role: reference_only
+  allowed_skills:
+    - add_api_endpoint
+    - validate_request
+    - update_api_docs
+
+api:
+  base_path: /api
+  auth: bearer_token
+  response_format:
+    success:
+      success: true
+      data: object
+    error:
+      success: false
+      error: string
+  endpoints:
+    - method: POST
+      path: /auth/login
+      description: Login user and return token.
+    - method: GET
+      path: /projects
+      description: List user projects.
+    - method: POST
+      path: /projects
+      description: Create project.
+    - method: GET
+      path: /workflows
+      description: List workflows.
+    - method: POST
+      path: /workflows
+      description: Create workflow.

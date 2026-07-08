@@ -1,0 +1,12 @@
+_meta:
+  type: security_rules
+  schema: instructions.v1
+  id: security_rules
+
+rules:
+  - Never store plain text passwords.
+  - Hash passwords with a secure algorithm.
+  - Require authentication for private APIs.
+  - Require admin role for user and role management.
+  - Validate and sanitize all input.
+  - Do not expose stack traces to users.

@@ -1,0 +1,173 @@
+schema: ai_project_index.v1
+
+project:
+  name: workflow-editor-example
+  description: Example structure for AI-assisted project development.
+
+# Files that are usually safe to load for most tasks.
+default_load:
+  instructions:
+    - global_rules
+    - coding_rules
+  context:
+    - project_overview
+
+contexts:
+  project_overview:
+    path: ai/context/project-overview.yaml
+    domain: project
+    role: reference_only
+    load: always
+    allowed_skills:
+      - analyze_project
+      - plan_feature
+
+  database_schema:
+    path: ai/context/database-schema.yaml
+    domain: database
+    role: reference_only
+    load_when:
+      - database
+      - sql
+      - migration
+      - table
+      - model
+    allowed_skills:
+      - write_migration
+      - optimize_sql
+      - update_model
+
+  api_spec:
+    path: ai/context/api-spec.yaml
+    domain: backend
+    role: reference_only
+    load_when:
+      - api
+      - endpoint
+      - controller
+      - backend
+    allowed_skills:
+      - add_api_endpoint
+      - validate_request
+      - update_api_docs
+
+  frontend_architecture:
+    path: ai/context/frontend-architecture.yaml
+    domain: frontend
+    role: reference_only
+    load_when:
+      - ui
+      - react
+      - frontend
+      - page
+      - component
+    allowed_skills:
+      - create_react_component
+      - fix_ui_bug
+      - connect_api
+
+  backend_architecture:
+    path: ai/context/backend-architecture.yaml
+    domain: backend
+    role: reference_only
+    load_when:
+      - backend
+      - service
+      - auth
+      - controller
+    allowed_skills:
+      - add_api_endpoint
+      - create_service
+      - add_auth
+
+instructions:
+  global_rules:
+    path: ai/instructions/global-rules.yaml
+  coding_rules:
+    path: ai/instructions/coding-rules.yaml
+  security_rules:
+    path: ai/instructions/security-rules.yaml
+  ui_rules:
+    path: ai/instructions/ui-rules.yaml
+
+skills:
+  plan_feature:
+    path: ai/skills/plan-feature.yaml
+    domains: [project]
+    requires_context: [project_overview]
+
+  write_migration:
+    path: ai/skills/write-migration.yaml
+    domains: [database]
+    requires_context: [database_schema]
+
+  add_api_endpoint:
+    path: ai/skills/add-api-endpoint.yaml
+    domains: [backend]
+    requires_context: [api_spec, backend_architecture]
+
+  create_react_component:
+    path: ai/skills/create-react-component.yaml
+    domains: [frontend]
+    requires_context: [frontend_architecture]
+
+  create_crud_module:
+    path: ai/skills/create-crud-module.yaml
+    domains: [database, backend, frontend]
+    requires_context:
+      - database_schema
+      - api_spec
+      - backend_architecture
+      - frontend_architecture
+
+skill_routing:
+  - when:
+      task_type: database
+    load_context:
+      - database_schema
+    load_instructions:
+      - coding_rules
+      - security_rules
+    load_skills:
+      - write_migration
+
+  - when:
+      task_type: backend
+    load_context:
+      - api_spec
+      - backend_architecture
+    load_instructions:
+      - coding_rules
+      - security_rules
+    load_skills:
+      - add_api_endpoint
+
+  - when:
+      task_type: frontend
+    load_context:
+      - frontend_architecture
+    load_instructions:
+      - coding_rules
+      - ui_rules
+    load_skills:
+      - create_react_component
+
+  - when:
+      task_type: full_feature
+    load_context:
+      - project_overview
+      - database_schema
+      - api_spec
+      - backend_architecture
+      - frontend_architecture
+    load_instructions:
+      - global_rules
+      - coding_rules
+      - security_rules
+      - ui_rules
+    load_skills:
+      - plan_feature
+      - write_migration
+      - add_api_endpoint
+      - create_react_component
+      - create_crud_module

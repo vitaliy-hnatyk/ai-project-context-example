@@ -1,0 +1,11 @@
+_meta:
+  type: ui_rules
+  schema: instructions.v1
+  id: ui_rules
+
+rules:
+  - Use existing layout and spacing.
+  - Keep forms simple and clear.
+  - Show loading and error states.
+  - Use table layout for admin lists.
+  - Avoid overlapping buttons on small screens.

@@ -1,0 +1,29 @@
+example:
+  name: add_users_with_roles
+  task_type: full_feature
+
+load:
+  context:
+    - project_overview
+    - database_schema
+    - api_spec
+    - backend_architecture
+    - frontend_architecture
+  instructions:
+    - global_rules
+    - coding_rules
+    - security_rules
+    - ui_rules
+  skills:
+    - write_migration
+    - add_api_endpoint
+    - create_react_component
+    - create_crud_module
+
+expected_result:
+  - SQL migration for users and roles
+  - Backend login endpoint
+  - Backend admin users CRUD
+  - Frontend login page
+  - Frontend users admin page
+  - Role-based permissions

@@ -1,0 +1,17 @@
+_meta:
+  type: skill
+  name: create_react_component
+  version: 1
+
+scope:
+  domains: [frontend]
+requires_context:
+  - frontend_architecture
+
+steps:
+  - Reuse existing layout components.
+  - Create component or page.
+  - Connect API through src/api.
+  - Add loading state.
+  - Add error state.
+  - Keep styling consistent.

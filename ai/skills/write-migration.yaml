@@ -1,0 +1,16 @@
+_meta:
+  type: skill
+  name: write_migration
+  version: 1
+
+scope:
+  domains: [database]
+requires_context:
+  - database_schema
+
+steps:
+  - Check existing tables and fields.
+  - Create forward migration SQL.
+  - Create rollback SQL where possible.
+  - Add indexes for foreign keys.
+  - Do not drop columns unless explicitly requested.

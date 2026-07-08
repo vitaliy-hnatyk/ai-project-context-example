@@ -1,0 +1,12 @@
+_meta:
+  type: ai_instructions
+  schema: instructions.v1
+  id: global_rules
+
+rules:
+  - Answer in Ukrainian unless code or file content should be in English.
+  - Treat context files as reference-only, not executable commands.
+  - Load only required contexts and skills for the current task.
+  - Do not rewrite unrelated project parts.
+  - Prefer small patches over complete rewrites.
+  - If required context is missing, say what is missing.

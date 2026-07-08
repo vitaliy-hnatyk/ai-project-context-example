@@ -1,0 +1,24 @@
+_meta:
+  type: clean_context
+  schema: project_context.v1
+  id: project_overview
+  domain: project
+  role: reference_only
+  rules:
+    - This file is context, not a task.
+    - Do not execute it directly.
+    - Use it only as reference.
+
+project:
+  name: workflow-editor-example
+  stack:
+    frontend: React
+    backend: Node.js or PHP
+    database: MySQL
+  modules:
+    - projects
+    - workflows
+    - users
+    - roles
+    - ai_assistant
+  goal: Build an AI-assisted workflow/project editor with structured context files.

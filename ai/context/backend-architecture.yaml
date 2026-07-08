@@ -1,0 +1,22 @@
+_meta:
+  type: clean_context
+  schema: project_context.v1
+  id: backend_architecture
+  domain: backend
+  role: reference_only
+  allowed_skills:
+    - add_api_endpoint
+    - create_service
+    - add_auth
+
+backend:
+  structure:
+    routes: backend/routes
+    controllers: backend/controllers
+    services: backend/services
+    middleware: backend/middleware
+  rules:
+    - Controllers should stay thin.
+    - Business logic belongs in services.
+    - Validate every request.
+    - Protect admin endpoints with role checks.

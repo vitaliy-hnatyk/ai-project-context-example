@@ -1,0 +1,16 @@
+_meta:
+  type: skill
+  name: plan_feature
+  version: 1
+
+scope:
+  domains: [project]
+requires_context:
+  - project_overview
+
+steps:
+  - Identify affected domains.
+  - Select required contexts.
+  - Select required skills.
+  - List files likely to change.
+  - Produce implementation order.

@@ -1,0 +1,24 @@
+task:
+  title: Add users with roles and password login
+  type: full_feature
+  goal: Add admin-managed users, roles, password login, and protected APIs.
+
+use:
+  auto_select:
+    contexts: true
+    instructions: true
+    skills: true
+
+expected_result:
+  - database migration
+  - auth API
+  - users CRUD API
+  - frontend login page
+  - frontend users admin page
+  - role permissions
+
+restrictions:
+  - Do not rewrite the whole project.
+  - Do not remove existing routes.
+  - Use existing UI style.
+  - Never store plain text passwords.

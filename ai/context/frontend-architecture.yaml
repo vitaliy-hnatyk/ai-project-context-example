@@ -1,0 +1,28 @@
+_meta:
+  type: clean_context
+  schema: project_context.v1
+  id: frontend_architecture
+  domain: frontend
+  role: reference_only
+  allowed_skills:
+    - create_react_component
+    - fix_ui_bug
+    - connect_api
+
+frontend:
+  framework: React
+  structure:
+    pages: src/pages
+    components: src/components
+    api: src/api
+    store: src/store
+  rules:
+    - Use functional components.
+    - Reuse existing layout components.
+    - Keep API calls in src/api.
+    - Do not hardcode base API URL inside components.
+  pages:
+    - LoginPage
+    - ProjectsPage
+    - WorkflowEditorPage
+    - UsersAdminPage

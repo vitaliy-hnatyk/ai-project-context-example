@@ -1,0 +1,39 @@
+_meta:
+  type: clean_context
+  schema: project_context.v1
+  id: database_schema
+  domain: database
+  role: reference_only
+  allowed_skills:
+    - write_migration
+    - optimize_sql
+    - update_model
+
+mysql:
+  tables:
+    users:
+      fields:
+        id: bigint primary key auto_increment
+        email: varchar(255) unique not null
+        password_hash: varchar(255) not null
+        role_id: bigint not null
+        created_at: datetime
+        updated_at: datetime
+    roles:
+      fields:
+        id: bigint primary key auto_increment
+        name: varchar(100) unique not null
+        created_at: datetime
+    projects:
+      fields:
+        id: bigint primary key auto_increment
+        name: varchar(255) not null
+        description: text nullable
+        created_by: bigint not null
+    workflows:
+      fields:
+        id: bigint primary key auto_increment
+        project_id: bigint not null
+        name: varchar(255) not null
+        config_json: json not null
+        created_at: datetime

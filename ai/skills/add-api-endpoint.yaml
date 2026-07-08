@@ -1,0 +1,19 @@
+_meta:
+  type: skill
+  name: add_api_endpoint
+  version: 1
+
+scope:
+  domains: [backend]
+requires_context:
+  - api_spec
+  - backend_architecture
+
+steps:
+  - Check existing API style.
+  - Add route.
+  - Add controller method.
+  - Add service method.
+  - Validate request body.
+  - Return standard JSON response.
+  - Update API documentation if needed.

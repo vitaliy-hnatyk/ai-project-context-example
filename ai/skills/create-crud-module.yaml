@@ -1,0 +1,26 @@
+_meta:
+  type: skill
+  name: create_crud_module
+  version: 1
+
+scope:
+  domains: [database, backend, frontend]
+requires_context:
+  - database_schema
+  - api_spec
+  - backend_architecture
+  - frontend_architecture
+
+steps:
+  - Create or update database table.
+  - Add backend CRUD API endpoints.
+  - Add validation and permissions.
+  - Add frontend list page.
+  - Add create/edit form.
+  - Add delete confirmation.
+  - Update documentation.
+
+rules:
+  - Do not change unrelated modules.
+  - Reuse existing project style.
+  - Generate migration SQL for database changes.

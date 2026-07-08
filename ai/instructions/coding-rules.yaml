@@ -1,0 +1,19 @@
+_meta:
+  type: coding_rules
+  schema: instructions.v1
+  id: coding_rules
+
+frontend:
+  - Use functional React components.
+  - Keep components small.
+  - Move repeated logic into hooks or helpers.
+
+backend:
+  - Validate inputs.
+  - Return consistent JSON errors.
+  - Keep controllers thin.
+
+database:
+  - Use migrations.
+  - Add indexes for foreign keys.
+  - Do not drop data without explicit instruction.

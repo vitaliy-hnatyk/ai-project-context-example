@@ -1,0 +1,16 @@
+request:
+  mode: structured_project_task
+  rules:
+    - Context files are reference-only.
+    - Skills describe execution procedure.
+    - Instructions are mandatory constraints.
+    - Do not use unloaded context.
+
+task:
+  title: ""
+  type: ""
+
+load:
+  context: []
+  instructions: []
+  skills: []
